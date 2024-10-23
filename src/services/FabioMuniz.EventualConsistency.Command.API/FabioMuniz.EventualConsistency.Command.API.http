@@ -1,0 +1,23 @@
+@HostAddress = http://localhost:5089
+
+GET {{HostAddress}}/weatherforecast/
+Accept: application/json
+
+### POST - Assignment
+POST {{HostAddress}}/api/v1/todo
+Content-Type: application/json
+{
+    "Description": "POST http file"    
+}
+
+### UPDATE - Assignment
+PUT {{HostAddress}}/api/v1/todo
+Content-Type: application/json
+{
+    "Id": "",    
+    "Completed": false
+}
+
+### DELETE - Assignment
+DELETE {{HostAddress}}/api/v1/todo/
+Accept: application/json
