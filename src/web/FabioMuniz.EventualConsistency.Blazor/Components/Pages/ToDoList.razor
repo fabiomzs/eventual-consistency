@@ -1,7 +1,33 @@
 ﻿@page "/to-do-list"
+@inject IAssignmentService AssignmentService
 
-<h1>TO DO LIST</h1>
+<h1>ASSIGNMENTS LIST</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th scoope="col">ID</th>
+			<th scoope="col">DESCRIPTION</th>
+			<th scoope="col">DATE</th>
+			<th scoope="col">COMPLETED</th>
+		</tr>
+	</thead>
+	@foreach (var assignment in _list)
+	{
+		<tr>
+			<td scope="row">@assignment.Id</td>
+			<td scope="row">@assignment.Description</td>
+			<td scope="row">@assignment.CreatedAt.ToString("dd/MM/yyyy")</td>
+			<td scope="row">@assignment.Completed</td>
+		</tr>		
+	}
+</table>
 
 @code {
+	IEnumerable<Assignment> _list = Enumerable.Empty<Assignment>();
 
+	protected override async Task OnInitializedAsync()
+	{
+		_list = await AssignmentService.GetAllAssignmentsAsync();
+	}
 }
