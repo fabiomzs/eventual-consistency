@@ -32,30 +32,28 @@ public class RabbitMQService : IMessabeBus
 		await Task.CompletedTask;
 	}
 
-	public async Task SubscribeAsync<T>(T message, Func<T, Task> onMessage) where T : Event
+	public async Task SubscribeAsync<T>(string queue, Func<T, Task> onMessage) where T : class
 	{
-		var queue = message?.MessageType.ToKebab();
+		var channel = CreateChannel();
 
-		using var channel = CreateChannel();
+		channel.QueueDeclare(queue, true, false, false, null);
 
-		channel.QueueDeclare(queue, true, false, false);
+		var consumer = new EventingBasicConsumer(channel);
 
-		var consumer = new AsyncEventingBasicConsumer(channel);
-
-		consumer.Received += async (sender, eventArgs) =>
+		consumer.Received += (model, ea) =>
 		{
-			var body = eventArgs.Body.ToArray();
+			var body = ea.Body.ToArray();
 			var messageString = Encoding.UTF8.GetString(body);
 
-			var message =  JsonSerializer.Deserialize<T>(messageString);
+			var message = JsonSerializer.Deserialize<T>(messageString);
 
 			if (message != null)
-				await onMessage(message);
-
-			channel.BasicAck(eventArgs.DeliveryTag, false);
+				onMessage(message);			
 		};
 
-		await Task.CompletedTask;		
+		channel.BasicConsume(queue, true, consumer);
+
+		await Task.CompletedTask;
 	}
 
 	private IModel CreateChannel()

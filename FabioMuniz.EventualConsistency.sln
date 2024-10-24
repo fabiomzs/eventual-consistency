@@ -17,11 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "building-blocks", "building
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "message-bus", "message-bus", "{276A4B9B-3D00-492B-A67F-B90C6D7E1A18}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.MessageBus", "building-blocks\FabioMuniz.EventualConsistency.MessageBus\FabioMuniz.EventualConsistency.MessageBus.csproj", "{B28C3C4D-7E62-4A1C-BD90-63219C31E491}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabioMuniz.EventualConsistency.MessageBus", "building-blocks\FabioMuniz.EventualConsistency.MessageBus\FabioMuniz.EventualConsistency.MessageBus.csproj", "{B28C3C4D-7E62-4A1C-BD90-63219C31E491}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{90489D67-1849-4637-B41E-C4C4DB933A37}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.Core", "building-blocks\FabioMuniz.EventualConsistency.Core\FabioMuniz.EventualConsistency.Core.csproj", "{4D909D9B-E732-4A25-984C-DE2525E3EF18}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabioMuniz.EventualConsistency.Core", "building-blocks\FabioMuniz.EventualConsistency.Core\FabioMuniz.EventualConsistency.Core.csproj", "{4D909D9B-E732-4A25-984C-DE2525E3EF18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.Query.API", "src\services\FabioMuniz.EventualConsistency.Query.API\FabioMuniz.EventualConsistency.Query.API.csproj", "{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{B28C3C4D-7E62-4A1C-BD90-63219C31E491} = {276A4B9B-3D00-492B-A67F-B90C6D7E1A18}
 		{90489D67-1849-4637-B41E-C4C4DB933A37} = {2E9C04B0-4FB1-4F67-A128-E8E1DC59C9D6}
 		{4D909D9B-E732-4A25-984C-DE2525E3EF18} = {90489D67-1849-4637-B41E-C4C4DB933A37}
+		{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0} = {63ACFDCF-361E-4D11-A89F-2B52ECC0107B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D92F2002-66D3-4B07-84B7-A7150CF57D42}
