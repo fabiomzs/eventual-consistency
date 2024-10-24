@@ -11,7 +11,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{63
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabioMuniz.EventualConsistency.Blazor", "src\web\FabioMuniz.EventualConsistency.Blazor\FabioMuniz.EventualConsistency.Blazor.csproj", "{DC707263-4A22-458B-9A9E-2654267E4457}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.Command.API", "src\services\FabioMuniz.EventualConsistency.Command.API\FabioMuniz.EventualConsistency.Command.API.csproj", "{4247D639-A740-4A43-A569-7B61E5F65F2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabioMuniz.EventualConsistency.Command.API", "src\services\FabioMuniz.EventualConsistency.Command.API\FabioMuniz.EventualConsistency.Command.API.csproj", "{4247D639-A740-4A43-A569-7B61E5F65F2A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "building-blocks", "building-blocks", "{2E9C04B0-4FB1-4F67-A128-E8E1DC59C9D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "message-bus", "message-bus", "{276A4B9B-3D00-492B-A67F-B90C6D7E1A18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.MessageBus", "building-blocks\FabioMuniz.EventualConsistency.MessageBus\FabioMuniz.EventualConsistency.MessageBus.csproj", "{B28C3C4D-7E62-4A1C-BD90-63219C31E491}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{90489D67-1849-4637-B41E-C4C4DB933A37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.Core", "building-blocks\FabioMuniz.EventualConsistency.Core\FabioMuniz.EventualConsistency.Core.csproj", "{4D909D9B-E732-4A25-984C-DE2525E3EF18}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +37,14 @@ Global
 		{4247D639-A740-4A43-A569-7B61E5F65F2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4247D639-A740-4A43-A569-7B61E5F65F2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4247D639-A740-4A43-A569-7B61E5F65F2A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B28C3C4D-7E62-4A1C-BD90-63219C31E491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B28C3C4D-7E62-4A1C-BD90-63219C31E491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B28C3C4D-7E62-4A1C-BD90-63219C31E491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B28C3C4D-7E62-4A1C-BD90-63219C31E491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D909D9B-E732-4A25-984C-DE2525E3EF18}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +54,11 @@ Global
 		{63ACFDCF-361E-4D11-A89F-2B52ECC0107B} = {D2864870-2A73-4224-8DF3-9C79243AD158}
 		{DC707263-4A22-458B-9A9E-2654267E4457} = {2DDB7B3A-C1A4-4DFA-B4B0-29DE2EB87918}
 		{4247D639-A740-4A43-A569-7B61E5F65F2A} = {63ACFDCF-361E-4D11-A89F-2B52ECC0107B}
+		{2E9C04B0-4FB1-4F67-A128-E8E1DC59C9D6} = {D2864870-2A73-4224-8DF3-9C79243AD158}
+		{276A4B9B-3D00-492B-A67F-B90C6D7E1A18} = {2E9C04B0-4FB1-4F67-A128-E8E1DC59C9D6}
+		{B28C3C4D-7E62-4A1C-BD90-63219C31E491} = {276A4B9B-3D00-492B-A67F-B90C6D7E1A18}
+		{90489D67-1849-4637-B41E-C4C4DB933A37} = {2E9C04B0-4FB1-4F67-A128-E8E1DC59C9D6}
+		{4D909D9B-E732-4A25-984C-DE2525E3EF18} = {90489D67-1849-4637-B41E-C4C4DB933A37}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D92F2002-66D3-4B07-84B7-A7150CF57D42}
