@@ -1,4 +1,5 @@
 using FabioMuniz.EventualConsistency.Query.API.Configurations;
+using FabioMuniz.EventualConsistency.Query.API.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,5 +16,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.MapToDoRoutes();
 
 app.Run();

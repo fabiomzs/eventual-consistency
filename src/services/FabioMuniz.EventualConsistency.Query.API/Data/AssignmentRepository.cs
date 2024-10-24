@@ -23,6 +23,16 @@ public class AssignmentRepository : IAssignmentRepository
 		await _collection.DeleteOneAsync(filter);		
 	}
 
+	public async Task<IEnumerable<Assignment>> GetAllAsync()
+	{
+		return await _collection.Find(_ => true).ToListAsync();
+	}
+
+	public async Task<Assignment> GetByIdAsync(Guid id)
+	{
+		return await _collection.Find(x => x.Id == id).FirstOrDefaultAsync();
+	}
+
 	public async Task UpdateAsync(Guid id, bool completed)
 	{
 		var filter = Builders<Assignment>.Filter.Eq("_id", id.ToString());

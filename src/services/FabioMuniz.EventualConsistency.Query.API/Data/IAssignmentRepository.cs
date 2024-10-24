@@ -7,4 +7,6 @@ public interface IAssignmentRepository
 	Task CreateAsync(Assignment assignment);
 	Task UpdateAsync(Guid id, bool completed);
 	Task DeleteAsync(Guid id);
+	Task<IEnumerable<Assignment>> GetAllAsync();
+	Task<Assignment> GetByIdAsync(Guid id);
 }
