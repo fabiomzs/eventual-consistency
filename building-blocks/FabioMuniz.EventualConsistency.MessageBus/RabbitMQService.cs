@@ -1,6 +1,7 @@
 ﻿using FabioMuniz.EventualConsistency.Core.Extensions;
 using FabioMuniz.EventualConsistency.Core.Messages;
 using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
 using System.Text;
 using System.Text.Json;
 
@@ -18,7 +19,7 @@ public class RabbitMQService : IMessabeBus
 
 	public async Task PublishAsync<T>(T message) where T : Event
 	{
-		var queue = message.MessageType.ToKebab();
+		var queue = message?.MessageType.ToKebab();
 		var json = JsonSerializer.Serialize(message);
 		using var channel = CreateChannel();
 
@@ -29,6 +30,32 @@ public class RabbitMQService : IMessabeBus
 		_connection.Close();
 
 		await Task.CompletedTask;
+	}
+
+	public async Task SubscribeAsync<T>(T message, Func<T, Task> onMessage) where T : Event
+	{
+		var queue = message?.MessageType.ToKebab();
+
+		using var channel = CreateChannel();
+
+		channel.QueueDeclare(queue, true, false, false);
+
+		var consumer = new AsyncEventingBasicConsumer(channel);
+
+		consumer.Received += async (sender, eventArgs) =>
+		{
+			var body = eventArgs.Body.ToArray();
+			var messageString = Encoding.UTF8.GetString(body);
+
+			var message =  JsonSerializer.Deserialize<T>(messageString);
+
+			if (message != null)
+				await onMessage(message);
+
+			channel.BasicAck(eventArgs.DeliveryTag, false);
+		};
+
+		await Task.CompletedTask;		
 	}
 
 	private IModel CreateChannel()
