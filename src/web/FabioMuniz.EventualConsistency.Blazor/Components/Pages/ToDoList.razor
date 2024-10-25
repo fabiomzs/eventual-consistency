@@ -23,11 +23,23 @@
 	}
 </table>
 
+<a href="/assignment" class="btn btn-primary fab">NEW ASSIGNMENT</a>
+
+
 @code {
-	IEnumerable<Assignment> _list = Enumerable.Empty<Assignment>();
+	IEnumerable<AssignmentModel> _list = Enumerable.Empty<AssignmentModel>();
 
 	protected override async Task OnInitializedAsync()
 	{
 		_list = await AssignmentService.GetAllAssignmentsAsync();
 	}
 }
+
+<style>
+	.fab {
+		position: fixed;
+		bottom: 20px;
+		right: 20px;
+		z-index: 1000;				
+	}
+</style>

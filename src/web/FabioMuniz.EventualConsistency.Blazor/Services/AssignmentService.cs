@@ -7,13 +7,13 @@ namespace FabioMuniz.EventualConsistency.Blazor.Services
 {
 	public class AssignmentService(IHttpClientFactory httpClientFactory) : IAssignmentService
 	{
-		public async Task<IEnumerable<Assignment>> GetAllAssignmentsAsync()
+		public async Task<IEnumerable<AssignmentModel>> GetAllAssignmentsAsync()
 		{
 			using HttpClient httpClient = httpClientFactory.CreateClient(AppSettings.QueryAPI.ClientName);
 
 			try
 			{
-				return await httpClient.GetFromJsonAsync<IEnumerable<Assignment>>("assignments");
+				return await httpClient.GetFromJsonAsync<IEnumerable<AssignmentModel>>("assignments");
 			}
 			catch (Exception ex)
 			{
@@ -21,20 +21,20 @@ namespace FabioMuniz.EventualConsistency.Blazor.Services
 			}
 		}
 
-		public async Task<Assignment> GetAssignmentByIdAsync(Guid id)
+		public async Task<AssignmentModel> GetAssignmentByIdAsync(Guid id)
 		{
 			using HttpClient httpClient = httpClientFactory.CreateClient(AppSettings.QueryAPI.ClientName);
 
 			try
 			{
-				return await httpClient.GetFromJsonAsync<Assignment>($"assignments/{id}");
+				return await httpClient.GetFromJsonAsync<AssignmentModel>($"assignments/{id}");
 			}
 			catch (Exception ex)
 			{
 				throw ex;
 			}
 		}
-		public async Task<bool> CreateAssignmentAsync(Assignment assignment)
+		public async Task<bool> CreateAssignmentAsync(AssignmentModel assignment)
 		{
 			using HttpClient httpClient = httpClientFactory.CreateClient(AppSettings.CommandAPI.ClientName);
 
@@ -42,7 +42,7 @@ namespace FabioMuniz.EventualConsistency.Blazor.Services
 			{
 				var request = SerializeContent(assignment);
 
-				var response = await httpClient.PostAsync("asignments", request);
+				var response = await httpClient.PostAsync("assignments", request);
 
 				return response.IsSuccessStatusCode;
 			}

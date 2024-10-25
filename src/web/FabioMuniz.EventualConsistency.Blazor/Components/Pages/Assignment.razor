@@ -1,0 +1,63 @@
+﻿@page "/assignment"
+@inject IAssignmentService AssignmentService
+
+<h3>ASSIGNMENT</h3>
+
+<EditForm Model="@assignment" OnValidSubmit="OnSubmit" FormName="AssignmentForm">
+	<div class="container-xs text-center">
+		<div class="row justify-content-sm-center">
+			<div class="col-sm-4">
+				<span class="form-control">@assignment?.Id.ToString()</span>
+				<br />
+				<span class="form-control">@assignment?.CreatedAt</span>
+				<br />
+			</div>
+		</div>
+		<div class="row justify-content-sm-center">
+			<div class="col-sm-4">
+				<InputText @bind-Value="assignment!.Description" class="form-control" placeholder="Description" />
+				<br />
+			</div>
+		</div>
+		<div class="row justify-content-sm-center">
+			<div class="col-sm-4">
+				<div class="form-check form-check-inline">
+					<InputCheckbox @bind-Value="assignment.Completed" class="form-check-input" id="check-completed" />
+					<label class="form-check-label" for="check-completed">
+						Completed
+					</label>
+				</div>
+				<br />
+				<br />
+			</div>
+		</div>
+		<div class="row justify-content-sm-center">
+			<div class="col-sm-4">
+				<div class="d-grid gap-2">
+					<button type="submit" class="btn btn-primary" disabled="@busy">CREATE</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</EditForm>
+
+@code {
+	[Parameter]
+	public AssignmentModel? assignment { get; set; } = new();
+
+	bool busy = false;
+
+	async Task OnSubmit()
+	{
+		busy = true;
+
+		if (assignment!.Id != Guid.Empty)
+			await AssignmentService.UpdateAssignmentAsync(assignment.Id, assignment.Completed);
+		else
+			await AssignmentService.CreateAssignmentAsync(assignment);
+
+		busy = false;
+
+		assignment = new();
+	}
+}

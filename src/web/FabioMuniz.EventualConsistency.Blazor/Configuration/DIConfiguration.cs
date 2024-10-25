@@ -8,7 +8,7 @@ public static class DIConfiguration
 	public static IServiceCollection AddDependencyInjections(this IServiceCollection services)
 	{
 		services.AddHttpClient(AppSettings.QueryAPI.ClientName, client => client.BaseAddress = new Uri(AppSettings.QueryAPI.Url));
-		services.AddHttpClient(AppSettings.CommandAPI.ClientName, client => client.BaseAddress = new Uri(AppSettings.QueryAPI.Url));
+		services.AddHttpClient(AppSettings.CommandAPI.ClientName, client => client.BaseAddress = new Uri(AppSettings.CommandAPI.Url));
 
 		services.AddScoped<IAssignmentService, AssignmentService>();
 
