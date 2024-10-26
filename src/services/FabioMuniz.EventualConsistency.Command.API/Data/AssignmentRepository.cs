@@ -19,11 +19,11 @@ public class AssignmentRepository : IAssignmentRepository
 
     public async Task<Guid> CreateAsync(Assignment assignment)
     {
-        string query = "INSERT INTO Assignments (Id, Description, Completed, CreatedAt) OUTPUT INSERTED.Id VALUES (@Id, @Description, 0, GETDATE())";
+        string query = "INSERT INTO Assignments (Id, Description, Completed, CreatedAt) OUTPUT INSERTED.Id VALUES (@Id, @Description, 0, @CreatedAt)";
 
         using IDbConnection connection = Connection;
 
-        return await connection.QuerySingleAsync<Guid>(query, new { Id = assignment.Id, Description = assignment.Description });
+        return await connection.QuerySingleAsync<Guid>(query, new { Id = assignment.Id, Description = assignment.Description, CreatedAt = assignment.CreatedAt });
     }
 
     public async Task<bool> UpdateAsync(Guid id, bool completed)

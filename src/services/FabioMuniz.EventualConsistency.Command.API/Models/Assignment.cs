@@ -13,6 +13,7 @@ public class Assignment
         Id = Guid.NewGuid();
         Description = description;
         Completed = false;
+        CreatedAt = DateTime.UtcNow;
     }
 
     public Assignment(Guid id, string description, bool completed)
@@ -20,5 +21,6 @@ public class Assignment
         Id= id;
         Description = description;
         Completed = completed;
-    }
+		CreatedAt = DateTime.UtcNow;
+	}
 }
