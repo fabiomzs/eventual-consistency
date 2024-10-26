@@ -58,7 +58,7 @@ namespace FabioMuniz.EventualConsistency.Blazor.Services
 
 			try
 			{
-				var response = await httpClient.DeleteAsync($"asignments/{id}");
+				var response = await httpClient.DeleteAsync($"assignments/{id}");
 
 				return response.IsSuccessStatusCode;
 			}
@@ -77,7 +77,7 @@ namespace FabioMuniz.EventualConsistency.Blazor.Services
 			{
 				var request = SerializeContent(new { Id = id, Completed = completed });
 
-				var response = await httpClient.PutAsync($"asignments/{id}", request);
+				var response = await httpClient.PutAsync($"assignments/{id}", request);
 
 				return response.IsSuccessStatusCode;
 			}

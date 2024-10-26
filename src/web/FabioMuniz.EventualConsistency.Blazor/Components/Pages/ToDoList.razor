@@ -3,35 +3,77 @@
 
 <h1>ASSIGNMENTS LIST</h1>
 
-<table class="table">
+<table class="table table-striped">
 	<thead>
 		<tr>
-			<th scoope="col">ID</th>
-			<th scoope="col">DESCRIPTION</th>
+			<th scoope="col">ASSIGNMENT</th>
+
 			<th scoope="col">DATE</th>
 			<th scoope="col">COMPLETED</th>
 		</tr>
 	</thead>
-	@foreach (var assignment in _list)
-	{
-		<tr>
-			<td scope="row">@assignment.Id</td>
-			<td scope="row">@assignment.Description</td>
-			<td scope="row">@assignment.CreatedAt.ToString("dd/MM/yyyy")</td>
-			<td scope="row">@assignment.Completed</td>
-		</tr>		
-	}
+	<tbody>
+		@foreach (var assignment in _list)
+		{
+			<tr style="height: 47px;">
+				<td scope="row">
+					<strong>ID: </strong> @assignment.Id
+					<br />
+					<br />
+					<strong>DESCRIPTION: </strong>@assignment.Description
+				</td>
+
+				<td scope="row">@assignment.CreatedAt.ToString("dd/MM/yyyy")</td>
+				<td scope="row" style="text-align: center;">
+					@if (!busy)
+					{
+						<div class="form-check form-check-inline">
+							<InputCheckbox class="form-check-input"
+										   style="margin-left: 0px;"
+										   Value="assignment.Completed"
+										   ValueExpression="(() => assignment.Completed)"
+										   ValueChanged="@(args => AssignmentChanged(assignment.Id, args))" />
+						</div>
+					}
+					else
+					{
+						<div class="spinner-border spinner-border-sm text-primary" role="status">
+							<span class="visually-hidden"></span>
+						</div>
+						<br />
+					}
+				</td>
+			</tr>
+		}
+	</tbody>
 </table>
 
 <a href="/assignment" class="btn btn-primary fab">NEW ASSIGNMENT</a>
 
-
 @code {
 	IEnumerable<AssignmentModel> _list = Enumerable.Empty<AssignmentModel>();
+	private Timer timer;
+	private bool busy = false;
+
+	async Task AssignmentChanged(Guid id, bool completed)
+	{
+		busy = true;
+		await AssignmentService.UpdateAssignmentAsync(id, completed);
+
+		StateHasChanged();
+	}
 
 	protected override async Task OnInitializedAsync()
 	{
 		_list = await AssignmentService.GetAllAssignmentsAsync();
+		timer = new Timer(RefreshData!, null, 0, 3000);
+	}
+
+	async void RefreshData(object state)
+	{
+		_list = await AssignmentService.GetAllAssignmentsAsync();
+		busy = false;
+		await InvokeAsync(StateHasChanged);
 	}
 }
 
@@ -40,6 +82,6 @@
 		position: fixed;
 		bottom: 20px;
 		right: 20px;
-		z-index: 1000;				
+		z-index: 1000;
 	}
 </style>
