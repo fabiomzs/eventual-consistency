@@ -27,7 +27,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabioMuniz.EventualConsiste
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gateway", "gateway", "{4DBE9F5E-E56A-4AB7-B273-48FE84747A04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.Gateway.API", "src\gateway\FabioMuniz.EventualConsistency.Gateway.API\FabioMuniz.EventualConsistency.Gateway.API.csproj", "{EC838F81-FC0D-4E56-B147-A572E2C9DCE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FabioMuniz.EventualConsistency.Gateway.API", "src\gateway\FabioMuniz.EventualConsistency.Gateway.API\FabioMuniz.EventualConsistency.Gateway.API.csproj", "{EC838F81-FC0D-4E56-B147-A572E2C9DCE4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-items", "{4AD7263D-6779-4642-A9A3-383A2B015CF3}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose.yml = docker-compose.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
