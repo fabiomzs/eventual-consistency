@@ -1,4 +1,5 @@
 using FabioMuniz.EventualConsistency.Command.API.Configurations;
+using FabioMuniz.EventualConsistency.Command.API.Data;
 using FabioMuniz.EventualConsistency.Command.API.Routes;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,5 +19,9 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapToDoRoutes();
+
+var database = app.Services.GetRequiredService<DatabaseInitializer>();
+database.Start();
+
 
 app.Run();

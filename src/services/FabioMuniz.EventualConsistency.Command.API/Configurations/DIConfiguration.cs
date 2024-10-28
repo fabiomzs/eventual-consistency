@@ -10,6 +10,8 @@ public static class DIConfiguration
 	{
 		services.AddScoped<IAssignmentRepository>(provider => { return new AssignmentRepository(configuration.GetConnectionString("ToDoDB") ?? string.Empty); });
 		services.AddScoped<IMessabeBus>(provider => { return new RabbitMQService(configuration.GetConnectionString("RabbitMQ") ?? string.Empty); });
+				
+		services.AddSingleton<DatabaseInitializer>(provider => new DatabaseInitializer(configuration.GetConnectionString("ToDoDB") ?? string.Empty));			
 
 		services.AddScoped<CreateAssignment>();
 		services.AddScoped<CompleteAssignment>();

@@ -13,7 +13,7 @@ services:
         - 1433:1433
     environment:
         - ACCEPT_EULA=Y
-        - SA_PASSWORD=todo@2024
+        - SA_PASSWORD=todo@db2024
         - MSSQL_PID=Express
 
   mongodb:
