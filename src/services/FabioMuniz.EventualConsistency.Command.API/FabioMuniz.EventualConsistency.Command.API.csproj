@@ -14,6 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\building-blocks\FabioMuniz.EventualConsistency.Logger\FabioMuniz.EventualConsistency.Logger.csproj" />
     <ProjectReference Include="..\..\..\building-blocks\FabioMuniz.EventualConsistency.MessageBus\FabioMuniz.EventualConsistency.MessageBus.csproj" />
   </ItemGroup>
 

@@ -34,6 +34,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-items", "solution-
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "logger", "logger", "{5AE4151C-BFB8-45CF-AA2A-92B3CCB22AE2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FabioMuniz.EventualConsistency.Logger", "building-blocks\FabioMuniz.EventualConsistency.Logger\FabioMuniz.EventualConsistency.Logger.csproj", "{EC54489E-715D-4740-8AF7-8BE7B2DD4A8E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,10 @@ Global
 		{EC838F81-FC0D-4E56-B147-A572E2C9DCE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC838F81-FC0D-4E56-B147-A572E2C9DCE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EC838F81-FC0D-4E56-B147-A572E2C9DCE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC54489E-715D-4740-8AF7-8BE7B2DD4A8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC54489E-715D-4740-8AF7-8BE7B2DD4A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC54489E-715D-4740-8AF7-8BE7B2DD4A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC54489E-715D-4740-8AF7-8BE7B2DD4A8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +89,8 @@ Global
 		{2FAC5E33-3D33-4AD2-8F68-AFF0E91EA9B0} = {63ACFDCF-361E-4D11-A89F-2B52ECC0107B}
 		{4DBE9F5E-E56A-4AB7-B273-48FE84747A04} = {D2864870-2A73-4224-8DF3-9C79243AD158}
 		{EC838F81-FC0D-4E56-B147-A572E2C9DCE4} = {4DBE9F5E-E56A-4AB7-B273-48FE84747A04}
+		{5AE4151C-BFB8-45CF-AA2A-92B3CCB22AE2} = {2E9C04B0-4FB1-4F67-A128-E8E1DC59C9D6}
+		{EC54489E-715D-4740-8AF7-8BE7B2DD4A8E} = {5AE4151C-BFB8-45CF-AA2A-92B3CCB22AE2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D92F2002-66D3-4B07-84B7-A7150CF57D42}

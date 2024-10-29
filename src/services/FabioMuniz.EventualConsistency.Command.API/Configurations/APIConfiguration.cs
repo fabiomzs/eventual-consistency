@@ -1,4 +1,6 @@
-﻿namespace FabioMuniz.EventualConsistency.Command.API.Configurations;
+﻿using FabioMuniz.EventualConsistency.Logger;
+
+namespace FabioMuniz.EventualConsistency.Command.API.Configurations;
 
 public static class APIConfiguration
 {
@@ -6,6 +8,7 @@ public static class APIConfiguration
 	{
 		services.AddEndpointsApiExplorer();
 		services.AddSwaggerGen();
+		services.AddLooger();
 
 		return services;
 	}

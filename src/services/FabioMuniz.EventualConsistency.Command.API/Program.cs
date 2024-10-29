@@ -1,6 +1,7 @@
 using FabioMuniz.EventualConsistency.Command.API.Configurations;
 using FabioMuniz.EventualConsistency.Command.API.Data;
 using FabioMuniz.EventualConsistency.Command.API.Routes;
+using FabioMuniz.EventualConsistency.Logger;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,5 +24,6 @@ app.MapToDoRoutes();
 var database = app.Services.GetRequiredService<DatabaseInitializer>();
 database.Start();
 
+app.UseLogger(builder.Configuration.GetConnectionString("ElasticSearch") ?? string.Empty);
 
 app.Run();
