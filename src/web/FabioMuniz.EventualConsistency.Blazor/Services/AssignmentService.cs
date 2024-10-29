@@ -15,9 +15,9 @@ namespace FabioMuniz.EventualConsistency.Blazor.Services
 			{
 				return await httpClient.GetFromJsonAsync<IEnumerable<AssignmentModel>>("assignments");
 			}
-			catch (Exception ex)
+			catch (Exception)
 			{
-				throw ex;
+				return Enumerable.Empty<AssignmentModel>();
 			}
 		}
 

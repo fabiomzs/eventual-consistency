@@ -27,7 +27,7 @@ public static class Setup
 			.WriteTo.Elasticsearch(new[] { new Uri(connection) },
 				options =>
 				{
-					options.DataStream = new DataStreamName("logs", "assignments", "todo");
+					options.DataStream = new DataStreamName("logs", "todo", "assignments");
 					options.BootstrapMethod = BootstrapMethod.Failure;
 					
 					options.ConfigureChannel = channelOptions =>
